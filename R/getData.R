@@ -6,7 +6,7 @@ getData <- function(datadir, file) {
   
   ## Return a data frame with the household_power data from 01/02/2007 to 02/0272007
   
-  household_power_consumption <- read.csv(paste(datadir,"household_power_consumption.txt", sep=""), sep=";")
+  household_power_consumption <- read.csv(paste(datadir,file, sep=""), sep=";")
   household_power_consumption_tbl <- tbl_df(household_power_consumption)
   hpc_period <- filter(household_power_consumption_tbl, Date == "1/2/2007" | Date == "2/2/2007")
   hpc_period$Date.Time <- strptime(paste(as.character(hpc_period$Date), as.character(hpc_period$Time)),"%d/%m/%Y %H:%M:%S")
